@@ -33,7 +33,6 @@ public class ToDoService {
     {
         Todo prev = t.findById(id).orElseThrow();
         prev.setTitle(todo.getTitle());
-        prev.setDescription(todo.getDescription());
         prev.setIsCompleted(todo.getIsCompleted());
         return t.save(prev);
     }
