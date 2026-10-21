@@ -1,6 +1,9 @@
 package com.example.FirstProject;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import com.example.FirstProject.models.Todo;
 
@@ -17,7 +20,11 @@ public class ToDoService {
     {
         return t.findById(id).orElseThrow(()-> new RuntimeException("Todo not found"));
     }
-
+    public Page<Todo> getTodoByPage(int pageno, int size)
+    {
+        Pageable pageable = PageRequest.of(pageno,size);
+        return t.findAll(pageable);
+    }
     public List<Todo> getTodoos(){
         return t.findAll();
     }
