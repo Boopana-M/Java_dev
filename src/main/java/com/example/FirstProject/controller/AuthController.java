@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @PostMapping("/register")
     public String registerUser(@RequestBody Map<String, String> body) {
-
+        return "";
     }
 
 
